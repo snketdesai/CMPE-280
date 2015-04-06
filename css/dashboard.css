@@ -106,3 +106,13 @@ body {
 .img-center {
 	margin: 0 auto;
 }
+body {
+    padding-bottom: 40px;
+    padding-top: 60px;
+}
+
+.sidebar-nav-fixed {
+	width:20%;
+}
+
+
