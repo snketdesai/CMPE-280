@@ -28,8 +28,8 @@ var SampleApp = function() {
      */
     self.setupVariables = function() {
         //  Set the environment variables we need.
-        self.ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-        self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+        self.ipaddress = process.env.OPENSHIFT_NODEJS_IP || process.env.IP;
+        self.port      = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080;
 
         if (typeof self.ipaddress === "undefined") {
             //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
@@ -95,42 +95,22 @@ var SampleApp = function() {
     /*  App server functions (main app logic here).                       */
     /*  ================================================================  */
 
-    /**
-     *  Create the routing table entries + handlers for the application.
-     */
-    self.createRoutes = function() {
-        self.routes = { };
-
-        self.routes['/asciimo'] = function(req, res) {
-            var link = "http://i.imgur.com/kmbjB.png";
-            res.send("<html><body><img src='" + link + "'></body></html>");
-        };
-
-        self.routes['/'] = function(req, res) {
-            res.setHeader('Content-Type', 'text/html');
-            res.send(self.cache_get('index.html') );
-        };
-    };
-
 
     /**
      *  Initialize the server (express) and create the routes and register
      *  the handlers.
      */
     self.initializeServer = function() {
-        self.createRoutes();
+ 
         self.app = express(); //express.createServer();
 		self.app.use(bodyParser.urlencoded({
 			  extended: true
 			}));
 		self.app.use(bodyParser.json());
 		self.app.use(cors());
-		self.app.use(express.static('./public'));
+		self.app.use(express.static(__dirname + '/public'));
         //  Add handlers for the app (from the routes).
-        for (var r in self.routes) {
-            self.app.get(r, self.routes[r]);
-        }
-		
+        
 		self.app.post('/', function (req, res) {
 	    console.log(JSON.stringify(req.body));
 	    
