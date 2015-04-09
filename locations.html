@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<link href="css/dashboard.css" rel="stylesheet">
+<link href="css/sticky-footer-navbar.css" rel="stylesheet">
+<link href="css/theme.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+<link rel="stylesheet"
+	href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+<script src="js/bootstrap.js"></script>
+<script type="text/javascript"
+	src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<style>
+
+
+</style>
+
+</head>
+<body>
+	<header class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<a href="#" class="navbar-brand"><strong>Innovative
+					Solutions</strong></a>
+
+			<button class="navbar-toggle" data-toggle="collapse"
+				data-target=".navHeaderCollapse">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+
+			<div class="collapse navbar-collapse navHeaderCollapse">
+
+				<ul class="nav navbar-nav navbar-right">
+
+					<li class="active"><a href="#">Home</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">Products <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="https://twitter.com/calbiztrends">Mobile</a></li>
+							<li><a href="https://www.facebook.com/cabusinesstrends">Big
+									Data</a></li>
+							<li><a href="https://www.facebook.com/cabusinesstrends">IOE/IOT</a></li>
+						</ul></li>
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">About <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="https://twitter.com/calbiztrends">Management</a></li>
+							<li><a href="https://www.facebook.com/cabusinesstrends">Code
+									of Conduct</a></li>
+							<li><a href="https://www.facebook.com/cabusinesstrends">Business
+									Process</a></li>
+							<li><a href="https://www.facebook.com/cabusinesstrends">Locations</a></li>
+							<li><a href="https://www.facebook.com/cabusinesstrends">Contacts</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<h3 align="center">Locations</h3>
+	<div style="width: 500px; left: 30px; position: relative;">
+	<p> Center for Global Software and Development<br>
+	& Sarasvathi Learning Centers :: San Jose
+	</p>
+	
+	</div>
+	<div id = "locationDiv1"  style="position: absolute; top: 180px; left: 30px; height: 300px; width: 500px;">
+		<div id="gmap_canvas" style="height: 300px; width: 400px;"></div>
+	</div>
+	
+	<div style=" left : 530px; width: 500px; top : -50px; position: relative;">
+	<p> Center for Global Software and Development<br>
+	& Sarasvathi Learning Centers :: Delhi
+	</p>
+	
+	</div>
+	<div id = "locationDiv2" style="position: absolute; top: 180px; left: 530px; height: 300px; width: 500px;">
+	<div id="gmap_canvas1" style="height: 300px; width: 400px;"></div>
+		
+	</div>
+<script type="text/javascript">
+		function init_map() {
+			var myOptions = {
+				zoom : 14,
+				center : new google.maps.LatLng(37.3366915, -121.88020180000001),
+				mapTypeId : google.maps.MapTypeId.ROADMAP
+			};
+			map = new google.maps.Map(document.getElementById("gmap_canvas"),
+					myOptions);
+			marker = new google.maps.Marker({
+				map : map,
+				position : new google.maps.LatLng(37.3366915,
+						-121.88020180000001)
+			});
+			infowindow = new google.maps.InfoWindow(
+					{
+						content : "<b>Inoovative Solutions</b><br/>1 Washington Sq<br/>95112 San Jose"
+					});
+			google.maps.event.addListener(marker, "click", function() {
+				infowindow.open(map, marker);
+			});
+			infowindow.open(map, marker);
+		}
+		google.maps.event.addDomListener(window, 'load', init_map);
+	</script>
+
+
+<script type="text/javascript">
+		function init_map1() {
+			var myOptions = {
+				zoom : 14,
+				center : new google.maps.LatLng(28.6559831, 77.23678050000001),
+				mapTypeId : google.maps.MapTypeId.ROADMAP
+			};
+			map = new google.maps.Map(document.getElementById("gmap_canvas1"),
+					myOptions);
+			marker = new google.maps.Marker(
+					{
+						map : map,
+						position : new google.maps.LatLng(28.6559831,
+								77.23678050000001)
+					});
+			infowindow = new google.maps.InfoWindow(
+					{
+						content : "<b>Inovative Solutions</b><br/>Netaji Subhash Marg Chandni Chowk<br/>110006 New Delhi"
+					});
+			google.maps.event.addListener(marker, "click", function() {
+				infowindow.open(map, marker);
+			});
+			infowindow.open(map, marker);
+		}
+		google.maps.event.addDomListener(window, 'load', init_map1);
+</script>
+
+
+<div class="navbar navbar-default navbar-fixed-bottom">
+
+	<footer class="container">
+		<br>
+		<p align="center">&copy; Innovative Solutions,Inc 2015</p>
+	</footer>
+
+</div>
+</body>
+</html>
