@@ -8,6 +8,28 @@
 <link href="css/dashboard.css" rel="stylesheet">
 <link href="css/sticky-footer-navbar.css" rel="stylesheet">
 <link href="css/theme.css" rel="stylesheet">
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.whitePaper').click(function(){
+			var href = $(this).attr('href');
+			
+		$("#myModal").modal('show');
+			$('#download').click(function(){
+				//$(this).click();
+				$("#myModal").modal('hide');
+				//alert(href);
+				 
+   				 location.href = href;
+			})
+
+	  });
+	});
+</script>
 </head>
 <body>
 	<header class="navbar navbar-inverse navbar-fixed-top">
@@ -50,26 +72,26 @@
 			</div>
 		</div>
 	</header>
-
+	
 	<div class="row">
 
 		<div class="col-md-2">
 			<div class="sidebar">
 				<ul class="nav nav-sidebar">
 					<li class="active"><h4>Big Data White Papers</h4></li>
-					<li><a
+					<li ><a class="whitePaper"
 						href="/whitepaper/bigdata/big-data-for-enterprise-519135.pdf">Big
 							Data for Enterprise</a></li>
-					<li><a
+					<li ><a class="whitePaper"
 						href="/whitepaper/bigdata/big-data-meets-big-data-analytics-105777.pdf">Big
 							Data and SAS</a></li>
-					<li><a href="/whitepaper/bigdata/bigdatawhitepaper.pdf">Big
+					<li ><a class="whitePaper" href="/whitepaper/bigdata/bigdatawhitepaper.pdf">Big
 							Data Challenges</a></li>
-					<li><a href="/whitepaper/bigdata/NESSI_WhitePaper_BigData.pdf">Big
+					<li ><a class="whitePaper" href="/whitepaper/bigdata/NESSI_WhitePaper_BigData.pdf">Big
 							Data Opportunities</a></li>
-					<li><a href="/whitepaper/bigdata/wp-big-data.pdf">Big Data
+					<li ><a class="whitePaper" href="/whitepaper/bigdata/wp-big-data.pdf">Big Data
 							and Analytics</a></li>
-					<li><a href="/whitepaper/bigdata/WP-DataStax-BigData.pdf">Big
+					<li ><a class="whitePaper" href="/whitepaper/bigdata/WP-DataStax-BigData.pdf">Big
 							Data Beyond the Hype</a></li>
 				</ul>
 
@@ -78,6 +100,43 @@
 
 		<div class="col-md-8">
 			<div>
+
+
+				<!-- MODAL AAAAAAAAAAAAAAAAAAAAAAAAA-->
+
+				<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Download White Paper</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+  					<span class="input-group-addon" id="basic-addon1">FirstName</span>
+  					<input type="text" class="form-control" placeholder="firstname" aria-describedby="basic-addon1">
+				</div>
+				</br>
+				<div class="input-group">
+  					<span class="input-group-addon" id="basic-addon1">LastName</span>
+  					<input type="text" class="form-control" placeholder="lastname" aria-describedby="basic-addon1">
+				</div>
+				</br>
+				<div class="input-group">
+  					<span class="input-group-addon" id="basic-addon1">Email</span>
+  					<input type="text" class="form-control" placeholder="email" aria-describedby="basic-addon1">
+  					<span class="input-group-addon" id="basic-addon2">.com</span>
+				</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button id="download" type="button" class="btn btn-primary">Download</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+				<!-- END of MODAL AAAAAAAAAAAAAAAAAAAAAAA-->
 				<h2 align="center">Big Data</h2>
 				<p>Big data is a broad term for data sets so large or complex
 					that traditional data processing applications are inadequate.
@@ -143,8 +202,6 @@
 
 	</div>
 
-	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="js/bootstrap.js"></script>
+	
 </body>
 </html>
