@@ -1,0 +1,26 @@
+{
+  "name": "Team5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snketdesai/snketdesai.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snketdesai/snketdesai.github.io/issues"
+  },
+  "homepage": "https://github.com/snketdesai/snketdesai.github.io",
+  "dependencies": {
+    "body-parser": "^1.12.2",
+    "cors": "^2.5.3",
+    "express": "^4.12.3",
+    "mongodb": "^2.0.27"
+  }
+}

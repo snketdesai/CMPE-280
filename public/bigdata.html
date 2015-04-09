@@ -10,7 +10,7 @@
 <link href="css/theme.css" rel="stylesheet">
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 
 	<script type="text/javascript">
@@ -19,12 +19,36 @@
 			//var a = $(this).children();
 			var href = $(this).attr('value');
 			
-		$("#myModal").modal('show');
+			$("#myModal").modal('show');
 		
 			$('#download').click(function(){
+				var fname = document.getElementById("fname").value;
+				var lname = document.getElementById("lname").value;
+				var email = document.getElementById("email").value;
+				
+				var mongo = {
+						"fname" : fname,
+						"lname" : lname,
+						"email" : email
+				};
+				var mongoJson = JSON.stringify(mongo);
+				//alert(mongoJson);
+				 $.ajax({
+					type: "POST",
+					contentType: "application/json",
+					url: "https://snketdesai-github-io-rohanbhanderi.c9.io/",
+					data: mongoJson,
+					dataType: "json",
+					success:function(data,status,jqXHR){
+					//	alert("S " +  status);		
+					},
+					error:function(jqXHR,status,errorThrown){
+					   // console.log(status + " " + errorThrown);
+						//alert(status + errorThrown+" error");
+					}
+				});	
 				
 				location.href = href;
-				
 				
 				$("#myModal").modal('hide');
 				
@@ -36,46 +60,56 @@
 </script>
 </head>
 <body>
-	<header class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<a href="#" class="navbar-brand"><strong>Innovative
-					Solutions</strong></a>
+	 <header class = "navbar navbar-inverse navbar-fixed-top">
+                        <div class = "container-fluid">
+                        
+                               
+                                <a href = "#" class = "navbar-brand"><strong>Innovative Solutions</strong></a>
+                               
+                                <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+                                        <span class = "icon-bar"></span>
+                                        <span class = "icon-bar"></span>
+                                        <span class = "icon-bar"></span>
+                                </button>
+                               
+                                <div class = "collapse navbar-collapse navHeaderCollapse">
+                               
+                                        <ul class = "nav navbar-nav navbar-right">
+                                       
+                                                <li class = "active"><a href = "#">Home</a></li>
+                                                <li class = "dropdown">
+                                                       
+                                                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Products <b class = "caret"></b></a>
+                                                        <ul class = "dropdown-menu">
+                                                                <li><a href = "mobile.html">Mobile</a></li>
+                                                                <li><a href = "bigdata.html">Big Data</a></li>
+                                                                <li><a href = "IoT2.html">IOE/IOT</a></li>
+                                                        </ul>
+                                               
+                                                </li>
+                                             
+                                                    <li class = "dropdown">
+                                                       
+                                                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">About <b class = "caret"></b></a>
+                                                        <ul class = "dropdown-menu">
+                                                                <li><a href = "team.html">Management</a></li>
+                                                                <li><a href = "codeOfConduct.html">Code of Conduct</a></li>
+                                                                <li><a href = "businessProcess.html">Business Process</a></li>
+                                                                <li><a href = "locations.html">Locations</a></li>
+                                                                <li><a href = "contacts.html">Contacts</a></li>
+                                                        </ul>
+                                               
+                                                </li>
+                                              </li>
+                                               
 
-			<button class="navbar-toggle" data-toggle="collapse"
-				data-target=".navHeaderCollapse">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-
-			<div class="collapse navbar-collapse navHeaderCollapse">
-
-				<ul class="nav navbar-nav navbar-right">
-
-					<li class="active"><a href="#">Home</a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">Products <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="https://twitter.com/calbiztrends">Mobile</a></li>
-							<li><a href="https://www.facebook.com/cabusinesstrends">Big
-									Data</a></li>
-							<li><a href="https://www.facebook.com/cabusinesstrends">IOE/IOT</a></li>
-						</ul></li>
-
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">About <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="https://twitter.com/calbiztrends">Management</a></li>
-							<li><a href="https://www.facebook.com/cabusinesstrends">Code
-									of Conduct</a></li>
-							<li><a href="https://www.facebook.com/cabusinesstrends">Business
-									Process</a></li>
-							<li><a href="https://www.facebook.com/cabusinesstrends">Locations</a></li>
-							<li><a href="https://www.facebook.com/cabusinesstrends">Contacts</a></li>
-						</ul></li>
-				</ul>
-			</div>
-		</div>
-	</header>
+                                       
+                                        </ul>
+                               
+                                </div>
+                               
+                        </div>
+                </header>
 	
 	<div class="row">
 
@@ -118,17 +152,17 @@
             <div class="modal-body">
                 <div class="input-group">
   					<span class="input-group-addon" id="basic-addon1">FirstName</span>
-  					<input type="text" class="form-control" placeholder="firstname" aria-describedby="basic-addon1">
+  					<input id="fname" type="text" class="form-control" placeholder="firstname" aria-describedby="basic-addon1">
 				</div>
 				</br>
 				<div class="input-group">
   					<span class="input-group-addon" id="basic-addon1">LastName</span>
-  					<input type="text" class="form-control" placeholder="lastname" aria-describedby="basic-addon1">
+  					<input id="lname" type="text" class="form-control" placeholder="lastname" aria-describedby="basic-addon1">
 				</div>
 				</br>
 				<div class="input-group">
   					<span class="input-group-addon" id="basic-addon1">Email</span>
-  					<input type="text" class="form-control" placeholder="email" aria-describedby="basic-addon1">
+  					<input id="email" type="text" class="form-control" placeholder="email" aria-describedby="basic-addon1">
   					<span class="input-group-addon" id="basic-addon2">.com</span>
 				</div>
             </div>
