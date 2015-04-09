@@ -1,26 +1,42 @@
 {
-  "name": "Team5",
+  "name": "OpenShift-Sample-App",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "OpenShift Sample Application",
+  "keywords": [
+    "OpenShift",
+    "Node.js",
+    "application",
+    "openshift"
+  ],
+  "author": {
+    "name": "OpenShift",
+    "email": "ramr@example.org",
+    "url": "http://www.openshift.com/"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "homepage": "http://www.openshift.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/snketdesai/snketdesai.github.io.git"
+    "url": "https://github.com/openshift/origin-server"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/snketdesai/snketdesai.github.io/issues"
+
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
   },
-  "homepage": "https://github.com/snketdesai/snketdesai.github.io",
+
   "dependencies": {
     "body-parser": "^1.12.2",
     "cors": "^2.5.3",
     "express": "^4.12.3",
     "mongodb": "^2.0.27"
-  }
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+
+  "private": true,
+  "main": "server.js"
 }
