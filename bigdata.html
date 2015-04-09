@@ -19,16 +19,9 @@
 			var href = $(this).attr('href');
 			
 		$("#myModal").modal('show');
-			$('#download').on('click', function(evt) {
-   					 evt.stopPropagation();
-   					 location.href = href;
-   				 
-				});
-				//$(this).click();
-				
-				//alert(href);
-				 
-   				 $("#myModal").modal('hide');
+			$('#download').click(function(){
+				$("#myModal").modal('hide');
+				alert(href);
 			})
 
 	  });
