@@ -19,13 +19,16 @@
 			var href = $(this).attr('href');
 			
 		$("#myModal").modal('show');
-			$('#download').click(function(){
+			$('#download').on('click', function(evt) {
+   					 evt.stopPropagation();
+   					 location.href = href;
+   				 $("#myModal").modal('hide');
+				});
 				//$(this).click();
 				
 				//alert(href);
 				 
-   				 location.href = href;
-   				 $("#myModal").modal('hide');
+   				 
 			})
 
 	  });
