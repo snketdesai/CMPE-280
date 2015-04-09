@@ -16,12 +16,19 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 		$('.whitePaper').click(function(){
-			var href = $(this).attr('href');
+			//var a = $(this).children();
+			var href = $(this).attr('value');
 			
 		$("#myModal").modal('show');
+		
 			$('#download').click(function(){
-			//	$("#myModal").modal('hide');
-				alert(href);
+				
+				location.href = href;
+				
+				
+				$("#myModal").modal('hide');
+				
+				
 			})
 
 	  });
@@ -76,19 +83,19 @@
 			<div class="sidebar">
 				<ul class="nav nav-sidebar">
 					<li class="active"><h4>Big Data White Papers</h4></li>
-					<li ><a class="whitePaper"
-						href="/whitepaper/bigdata/big-data-for-enterprise-519135.pdf">Big
+					<li class="whitePaper" value="/whitepaper/bigdata/big-data-for-enterprise-519135.pdf">
+						<a>Big
 							Data for Enterprise</a></li>
-					<li ><a class="whitePaper"
-						href="/whitepaper/bigdata/big-data-meets-big-data-analytics-105777.pdf">Big
+					<li class="whitePaper" value="/whitepaper/bigdata/big-data-meets-big-data-analytics-105777.pdf"><a 
+						>Big
 							Data and SAS</a></li>
-					<li ><a class="whitePaper" href="/whitepaper/bigdata/bigdatawhitepaper.pdf">Big
+					<li class="whitePaper" value="/whitepaper/bigdata/bigdatawhitepaper.pdf"><a  >Big
 							Data Challenges</a></li>
-					<li ><a class="whitePaper" href="/whitepaper/bigdata/NESSI_WhitePaper_BigData.pdf">Big
+					<li class="whitePaper" value="/whitepaper/bigdata/NESSI_WhitePaper_BigData.pdf"><a  >Big
 							Data Opportunities</a></li>
-					<li ><a class="whitePaper" href="/whitepaper/bigdata/wp-big-data.pdf">Big Data
+					<li class="whitePaper" value="/whitepaper/bigdata/wp-big-data.pdf"><a  >Big Data
 							and Analytics</a></li>
-					<li ><a class="whitePaper" href="/whitepaper/bigdata/WP-DataStax-BigData.pdf">Big
+					<li class="whitePaper" value="/whitepaper/bigdata/WP-DataStax-BigData.pdf"><a  >Big
 							Data Beyond the Hype</a></li>
 				</ul>
 
@@ -127,7 +134,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button id="download" type="button" class="btn btn-primary">Download</button>
+                <button  type="button" class="btn btn primary" id="download" >Download</button>
             </div>
         </div>
     </div>
