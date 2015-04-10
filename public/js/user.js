@@ -16,7 +16,7 @@ $(document).ready(function(){
 					"email" : email
 			};
 			var mongoJson = JSON.stringify(mongo);
-			//alert(mongoJson);
+			alert(mongoJson);
 			 $.ajax({
 				type: "POST",
 				contentType: "application/json",
