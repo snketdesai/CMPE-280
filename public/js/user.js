@@ -20,7 +20,7 @@ $(document).ready(function(){
 			 $.ajax({
 				type: "POST",
 				contentType: "application/json",
-				url: "https://snketdesai-github-io-rohanbhanderi.c9.io/",
+				url: "http://innovativesolutions-team5.rhcloud.com/",
 				data: mongoJson,
 				dataType: "json",
 				success:function(data,status,jqXHR){
